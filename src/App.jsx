@@ -3,8 +3,8 @@ import useWeatherInfo from "./hooks/useWeatherInfo";
 
 function App() {
   const [location, setLocation] = useState("London");
-
-  const weatherInfo = useWeatherInfo(location);
+  const [sentLocation, setSentLocation] = useState("London");
+  const weatherInfo = useWeatherInfo(sentLocation);
   return (
     <>
       <div>
@@ -13,6 +13,7 @@ function App() {
             onSubmit={(e) => {
               e.preventDefault();
               setLocation(location);
+              setSentLocation(location);
             }}
             className="flex justify-end w-full px-4 py-6"
           >
