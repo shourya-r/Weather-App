@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { removeSpaces, addSpaces } from ".";
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
 function useWeatherInfo(location) {
@@ -7,7 +7,9 @@ function useWeatherInfo(location) {
 
   useEffect(() => {
     fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=${apiKey}`
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${removeSpaces(
+        location
+      )}/?key=${apiKey}`
     )
       .then((res) => res.json())
       .then((res) =>
